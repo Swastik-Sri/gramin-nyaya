@@ -1,0 +1,1 @@
+We are developing 'Gramin-Nyaya,' an offline, voice-interactive Agentic RAG system. It enables rural users to navigate complex legal and government documents in Hindi. The system utilizes qwen2.5:1.5b for multilingual reasoning and deepseek-r1:1.5b for agentic tool-calling, all optimized for the NVIDIA Jetson Orin Nano's hardware constraints
