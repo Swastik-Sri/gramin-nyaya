@@ -1,37 +1,49 @@
 # ⚖️ Gramin-Nyaya: AI Legal Assistant
 
-**Gramin-Nyaya** is an offline, privacy-focused AI assistant designed to provide legal guidance to rural populations in India. By utilizing Retrieval-Augmented Generation (RAG), the system provides accurate answers from the **Registration Act, 1908** in simple Hindi.
+**Gramin-Nyaya** (Rural Justice) is an offline, privacy-first AI assistant designed to bridge the legal information gap for rural populations in India. By leveraging a dual-model **Agentic RAG** pipeline, the system provides grounded, simplified legal guidance from the **Registration Act, 1908** in high-quality Hindi.
 
 ---
 
-## 🚀 Features
-- **Offline Intelligence:** Runs locally using Ollama and Qwen 2.5 (1.5B), ensuring data privacy and zero internet cost during inference.
-- **Hindi-First Interface:** A minimalist, "Village-Friendly" UI designed for high readability and ease of use.
-- **Voice-Enabled:** Integrated with Faster-Whisper for Hindi speech-to-text, allowing users to speak their queries.
-- **Verified Legal Data:** Uses RAG to ground AI responses directly in official legal documents, reducing hallucinations.
+## 🚀 Key Features
+
+* **Agentic Dual-Model Pipeline:** Orchestrates two specialized models (**DeepSeek-R1** and **Qwen 2.5**) to separate legal reasoning from linguistic simplification.
+* **100% Offline & Private:** Runs entirely on local hardware via Ollama. No data ever leaves the device—crucial for maintaining confidentiality in legal queries.
+* **Hindi-First Interface:** A minimalist, "Kiosk-style" web UI designed for high readability and ease of use for non-tech-savvy users.
+* **Voice-Ready:** Integrated with **Faster-Whisper** for Hindi speech-to-text, allowing users to ask questions naturally via voice input.
+* **Hallucination Control:** Uses Retrieval-Augmented Generation (RAG) to ensure every answer is grounded in official legal documents.
+
+---
+
+## 🤖 Agentic Architecture
+
+Unlike standard AI chatbots, Gramin-Nyaya uses a **Reasoning-to-Generation** workflow:
+
+1.  **The Researcher (DeepSeek-R1 1.5B):** Analyzes the retrieved legal context to extract technical facts, specific sections (dhara), and statutory requirements.
+2.  **The Communicator (Qwen 2.5 1.5B):** Translates those technical facts into culturally nuanced, simplified Hindi (Devanagari) that is easy for a village user to understand.
 
 ---
 
 ## 🛠️ Tech Stack
-## 🤖 Agentic AI Architecture
-Gramin-Nyaya uses a dual-model pipeline for maximum accuracy:
-1. **Legal Reasoning:** `deepseek-r1:1.5b` extracts logical facts and statutory requirements.
-2. **Linguistic Refinement:** `qwen2.5:1.5b` converts technical legal logic into culturally nuanced and accessible Hindi (Devanagari).
+
+* **Core Logic:** Python 3.10+
+* **LLMs:** DeepSeek-R1 (1.5B) & Qwen 2.5 (1.5B) via **Ollama**
+* **API Framework:** FastAPI
+* **Vector Database:** ChromaDB
+* **Embeddings:** HuggingFace Multilingual-MiniLM (L12-v2)
+* **STT:** Faster-Whisper (Base model)
+* **Frontend:** Clean HTML5 / CSS3 / JavaScript (Single-file, no-build requirement)
+
 ---
 
 ## 📂 Project Structure
-- `api.py`: FastAPI server connecting the UI to the AI logic.
-- `rag_logic.py`: Core RAG implementation and document processing.
-- `stt_service.py`: Speech-to-Text conversion logic.
-- `index.html`: The user-friendly web interface.
-- `legal_docs/`: Contains the source PDF (Registration Act).
-- `requirements.txt`: List of necessary Python libraries.
 
----
-
-## ⚙️ Setup Instructions
-
-### 1. Prerequisites
-- Install **Ollama** and pull the model:
-  ```bash
-  ollama pull qwen2.5:1.5b
+```text
+Gramin-Nyaya/
+├── legal_docs/             # Source PDF (Registration Act 1908)
+├── api.py                  # FastAPI Backend & Model Orchestration
+├── rag_logic.py            # RAG pipeline & Dual-model logic
+├── stt_service.py          # Voice-to-Text processing service
+├── gramin_nyaya_main.py    # CLI-based controller
+├── index.html              # Village-friendly Web Interface
+├── requirements.txt        # Python dependencies
+└── .gitignore              # Git exclusion rules
