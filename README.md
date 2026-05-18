@@ -13,13 +13,10 @@
 ---
 
 ## 🛠️ Tech Stack
-- **LLM:** Qwen 2.5 (1.5B) via Ollama
-- **Backend:** FastAPI (Python)
-- **Vector Database:** ChromaDB
-- **STT:** Faster-Whisper (Base model)
-- **Frontend:** Simple HTML/CSS/JS (Optimized for low-resource devices)
-- **Embeddings:** HuggingFace Multilingual-MiniLM
-
+## 🤖 Agentic AI Architecture
+Gramin-Nyaya uses a dual-model pipeline for maximum accuracy:
+1. **Legal Reasoning:** `deepseek-r1:1.5b` extracts logical facts and statutory requirements.
+2. **Linguistic Refinement:** `qwen2.5:1.5b` converts technical legal logic into culturally nuanced and accessible Hindi (Devanagari).
 ---
 
 ## 📂 Project Structure
